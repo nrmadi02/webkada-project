@@ -63,8 +63,8 @@ export const InformationMobileItem = ({
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
           style={{
-            fontSize: isHovered ? 12 : 9,
-            fontWeight: isHovered ? 700 : 600,
+            fontSize: isHovered ? 10 : 9,
+            fontWeight: isHovered ? 600 : 600,
           }}
         >
           {title}
