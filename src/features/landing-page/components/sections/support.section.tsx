@@ -23,25 +23,25 @@ const socialMedias = [
 const SupportSection = () => {
   return (
     <section className="relative">
-      <div className="container pb-[170px]">
-        <div className="subcription-shadow bg-white rounded-lg flex flex-col items-center w-max py-[36px] px-[100px] -mt-[85px]">
-          <h1 className="font-plusJakartaSans text-center font-bold text-[40px] leading-[50px]">
+      <div className="md:container px-5 pb-9 lg:pb-[170px]">
+        <div className="subcription-shadow bg-white rounded-lg flex flex-col items-center w-full lg:w-max px-[39px] py-[11px] lg:py-[36px] lg:px-[100px] mt-9 lg:-mt-[85px]">
+          <h1 className="font-plusJakartaSans text-center font-bold text-base lg:text-[40px] leading-[19px] lg:leading-[50px]">
             IKUTI JEJAK PAK HARDA
           </h1>
-          <p className="text-base text-neutral-900 max-w-[499px] text-center leading-[19px]">
+          <p className="text-base hidden lg:block text-neutral-900 max-w-[499px] text-center leading-[19px]">
             Dapatkan informasi terbaru dan ikuti setiap aktivitas Pak Harda di
             Kabupaten Sleman.
           </p>
-          <div className="mt-6 border border-[#FDC61A] rounded-[18px] w-[476px] flex items-center h-[56px] overflow-hidden relative">
+          <div className="lg:mt-6 mt-3 border border-[#FDC61A] rounded-[18px] w-[240px] lg:w-[476px] flex items-center h-[29px] lg:h-[56px] overflow-hidden relative">
             <input
-              className="w-full outline-none px-4 text-base"
+              className="w-full outline-none px-4 text-[7px] lg:text-base"
               placeholder="Masukkan alamat email anda"
             />
-            <Button className="font-semibold bg-[#FDC61A] rounded-none text-neutral-900 hover:text-white transition-all h-[56px] w-[148px]">
+            <Button className="font-semibold lg:text-base text-[9px] bg-[#FDC61A] rounded-none text-neutral-900 hover:text-white transition-all w-[62px] lg:h-[56px] lg:w-[148px]">
               Ikuti
             </Button>
           </div>
-          <div className="mt-5 flex items-center justify-center gap-10">
+          <div className="lg:mt-5 mt-3 flex items-center justify-center gap-5 lg:gap-10">
             {socialMedias.map((socialMedia) => (
               <a
                 href={socialMedia.link}
@@ -54,15 +54,15 @@ const SupportSection = () => {
                   alt="social media icon"
                   width={36}
                   height={36}
-                  className="w-[36px] h-[36px]"
+                  className="lg:w-[36px] lg:h-[36px] h-4 w-4"
                 />
               </a>
             ))}
           </div>
         </div>
 
-        <div className="mt-[73px]">
-          <h1 className="text-[40px] leading-[50px] font-plusJakartaSans text-neutral-900 font-bold text-center">
+        <div className="lg:mt-[73px] mt-9">
+          <h1 className="lg:text-[40px] text-base leading-[19px] lg:leading-[50px] font-plusJakartaSans text-neutral-900 font-bold text-center">
             Pengusung Kami
           </h1>
           <Image
@@ -70,7 +70,7 @@ const SupportSection = () => {
             alt="support image"
             width={1200}
             height={600}
-            className="w-full mt-9"
+            className="w-full lg:mt-9 mt-[15px]"
           />
         </div>
       </div>

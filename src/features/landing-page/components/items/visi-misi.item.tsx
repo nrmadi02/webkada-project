@@ -22,7 +22,7 @@ export const VisiMisiItem = ({ title, description }: VisiMisiItemProps) => {
   return (
     <>
       <AnimatePresence>
-        {isHovered === true && (
+        {/* {isHovered === true && (
           <motion.div
             className="fixed inset-0 bg-black opacity-0 z-[99]"
             initial={{ opacity: 0 }}
@@ -30,7 +30,7 @@ export const VisiMisiItem = ({ title, description }: VisiMisiItemProps) => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           />
-        )}
+        )} */}
       </AnimatePresence>
       <motion.div
         onMouseEnter={handleMouseEnter}

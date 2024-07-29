@@ -1,13 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import HeroSection from "./sections/hero.section";
 import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import SupportSection from "./sections/support.section";
-import { VisiMisiSection } from "./sections/visi-misi.section";
-import InformationSection from "./sections/information.section";
+import VideoNewsSection from "./components/sections/video-news.section";
+import HeroSection from "./components/sections/hero.section";
+import SupportSection from "./components/sections/support.section";
+import { VisiMisiSection } from "./components/sections/visi-misi.section";
+import InformationSection from "./components/sections/information.section";
+import NewsSection from "./components/sections/news.section";
+import AIHardaChat from "./components/chat/ai-harda.chat";
 
 export const LandingPageContainer = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -17,8 +20,12 @@ export const LandingPageContainer = () => {
       <SupportSection />
       <VisiMisiSection />
       <InformationSection />
+      <NewsSection />
+      <VideoNewsSection />
 
-      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <AIHardaChat />
+
+      <Dialog open={false} onOpenChange={setIsOpen}>
         <DialogContent className="!rounded-[16px] px-[58px] py-[50px] max-w-max z-[999]">
           <DialogHeader>
             <div>

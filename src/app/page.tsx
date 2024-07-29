@@ -5,16 +5,14 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Pak Harda  Website",
-  description: "Pak Harda", 
-}
+  description: "Pak Harda",
+};
 
 export default function HomePage() {
   return (
     <>
       <Navbar />
-      <main>
-        <LandingPageContainer />
-      </main>
+      <LandingPageContainer />
       <Footer />
     </>
   );

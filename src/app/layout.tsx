@@ -25,7 +25,8 @@ export default function RootLayout({
         className={cn(
           montserrat.className,
           montserrat.variable,
-          plusJakartaSans.variable
+          plusJakartaSans.variable,
+          'scroll-smooth'
         )}
       >
         {children}

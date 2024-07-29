@@ -25,7 +25,7 @@ export const InformationItem = ({
   return (
     <>
       <AnimatePresence>
-        {isHovered === true && (
+        {/* {isHovered === true && (
           <motion.div
             className="fixed inset-0 bg-black opacity-0 z-[99]"
             initial={{ opacity: 0 }}
@@ -33,18 +33,27 @@ export const InformationItem = ({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           />
-        )}
+        )} */}
       </AnimatePresence>
       {isHovered === true && (
-        <motion.div
-          key="visi"
-          initial={{ opacity: 0 }}
-          animate={isHovered ? { opacity: 1 } : { opacity: 0 }}
-          exit={{ opacity: 0 }}
-          className="p-[36px] w-[532px] information-shadow absolute left-[56px] top-0 bottom-0 my-auto bg-white h-max z-[100] rounded-[8px]"
-        >
-          {description}
-        </motion.div>
+        <>
+          <motion.div
+            className="absolute inset-0 bg-white blur-lg w-[700px] opacity-0 z-[99]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.2 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          />
+          <motion.div
+            key="visi"
+            initial={{ opacity: 0 }}
+            animate={isHovered ? { opacity: 1 } : { opacity: 0 }}
+            exit={{ opacity: 0 }}
+            className="p-[36px] w-[532px] information-shadow absolute left-[56px] top-0 bottom-0 my-auto bg-white h-max z-[100] rounded-[8px]"
+          >
+            {description}
+          </motion.div>
+        </>
       )}
       <motion.div
         onMouseEnter={handleMouseEnter}

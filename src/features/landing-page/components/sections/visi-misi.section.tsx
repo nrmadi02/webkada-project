@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { VisiMisiItem } from "../items/visi-misi.item";
+import { VisiMisiMobileItem } from "../items/visi-misi-mobile.item";
 
 const visiMisiItems = [
   {
@@ -31,11 +32,20 @@ const visiMisiItems = [
 
 export const VisiMisiSection = () => {
   return (
-    <section>
-      <div className="pr-[70px] flex justify-between items-center pb-[30px]">
-        <div>
+    <section id="visi-misi">
+      <div className="lg:pr-[70px] pr-5 flex justify-between items-center pb-[30px]">
+        <div className="hidden lg:block">
           {visiMisiItems.map((visiMisiItem, idx) => (
             <VisiMisiItem
+              key={idx}
+              title={visiMisiItem.title}
+              description={visiMisiItem.description}
+            />
+          ))}
+        </div>
+        <div className="block lg:hidden relative h-[175px]">
+          {visiMisiItems.map((visiMisiItem, idx) => (
+            <VisiMisiMobileItem
               key={idx}
               title={visiMisiItem.title}
               description={visiMisiItem.description}
@@ -47,7 +57,7 @@ export const VisiMisiSection = () => {
           alt="visi-misi"
           width={443}
           height={563}
-          className="w-[443px] h-[563px]"
+          className="w-[144px] h-[175px] lg:w-[443px] lg:h-[563px]"
         />
       </div>
     </section>
