@@ -30,7 +30,7 @@ const socialMedias = [
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <nav className="navbar-shadow z-[101] overflow-x-hidden bg-white  sticky top-0">
+    <nav className="navbar-shadow z-[200] overflow-x-hidden bg-white  sticky top-0">
       <div className="md:container px-5 flex items-center relative justify-center lg:justify-between py-5">
         <Image
           width={200}

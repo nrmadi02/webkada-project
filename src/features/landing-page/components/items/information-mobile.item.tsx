@@ -1,75 +1,99 @@
 // import { useState } from "react";
+import { cn } from "@/lib/utils";
+import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
-
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 
 interface InformationMobileItemProps {
   title: string;
-  description: ReactNode;
+  description: string | ReactNode;
+  isHovered: boolean;
+  setIsHovered: (_isHovered: boolean) => void;
 }
 
 export const InformationMobileItem = ({
   title,
   description,
+  isHovered,
+  setIsHovered,
 }: InformationMobileItemProps) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-
   return (
     <>
-      {isHovered === true && (
-        <>
-          <motion.div
-            className="absolute inset-0 bg-white blur-lg w-[700px] opacity-0 z-[99]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.2 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          />
-          <motion.div
-            key="visi"
-            initial={{ opacity: 0 }}
-            animate={isHovered ? { opacity: 1 } : { opacity: 0 }}
-            exit={{ opacity: 0 }}
-            className="p-[10px] text-[9px] w-[215px] information-shadow absolute left-[15px] top-0 bottom-0 my-auto bg-white h-max z-[100] rounded-[8px]"
-          >
-            {description}
-          </motion.div>
-        </>
-      )}
       <motion.div
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        className="item-visi-shadow w-full cursor-pointer h-[35px] bg-[#d3e5e7] bg-opacity-30 flex items-center justify-center  z-[100] relative"
-        whileHover={{
-          boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.1)",
-          backgroundColor: "white",
-          scale: 1.1,
-          zIndex: 101,
+        onClick={() => setIsHovered(!isHovered)}
+        className="item-visi-shadow w-full cursor-pointer transition-all h-[110px]  flex items-center justify-center  z-[100]"
+        initial={{
+          width: "100%",
+          height: "110px",
+          position: "relative",
+          top: "0px",
+          left: "0px",
+          right: "0px",
+          backgroundColor: "#FEFEFE99",
+        }}
+        animate={
+          isHovered
+            ? {
+                position: "absolute",
+                top: "0px",
+                left: "0px",
+                right: "0px",
+                width: "100%",
+                height: "110px",
+                zIndex: "101",
+                opacity: "1",
+                backgroundColor: "white",
+              }
+            : {
+                width: "100%",
+                height: "110px",
+                position: "relative",
+                top: "0px",
+                left: "0px",
+                right: "0px",
+              }
+        }
+        exit={{
+          width: "100%",
+          height: "110px",
+          position: "relative",
+          top: "0px",
+          left: "0px",
+          right: "0px",
         }}
       >
-        <motion.p
-          key="visi"
-          className="text-[#434343]"
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 1 }}
+        <div className="flex items-center gap-1">
+          <motion.p
+            key="visi"
+            className="font-semibold text-[20px] leading-[12px] text-neutral-900"
+          >
+            {title}
+          </motion.p>
+          <Icon
+            icon="mingcute:down-line"
+            className={cn(
+              "h-4 w-4 text-neutral-900",
+              isHovered && "rotate-180"
+            )}
+          />
+        </div>
+      </motion.div>
+      {isHovered && (
+        <motion.div
+          key="description"
+          className="font-semibold w-[100%] z-[102] bg-[#FEFEFE99]  h-[calc(550px-110px)] px-5 py-5  absolute top-[110px] text-[16px] text-center text-[#434343] leading-[19px]"
+          initial={{ opacity: 0, height: "0px" }}
+          animate={{ opacity: 1, height: 550 - 60 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          style={{
-            fontSize: isHovered ? 10 : 9,
-            fontWeight: isHovered ? 600 : 600,
-          }}
         >
-          {title}
-        </motion.p>
-      </motion.div>
+          <div className="flex pt-[50px] px-5  justify-center w-full ">
+            <div className="bg-white p-[15px] rounded-lg item-visi-shadow">
+              {description}
+            </div>
+          </div>
+        </motion.div>
+      )}
     </>
   );
 };
