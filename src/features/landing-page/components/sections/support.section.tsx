@@ -32,10 +32,18 @@ const images = [
   { src: "/images/support-mobile-2.svg", alt: "Image 2" },
 ];
 
+const imagesDesktop = [
+  "/images/pdip.svg",
+  "/images/golkar.svg",
+  "/images/ppp.svg",
+  "/images/pks.svg",
+  "/images/nasdem.svg",
+  "/images/gerindra.svg",
+];
+
 const SupportSection = () => {
-  const plugin = useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: false })
-  );
+  const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: false }));
+  const pluginDesktop = useRef(Autoplay({ delay: 2000, stopOnInteraction: false }));
 
   return (
     <section className="relative">
@@ -81,13 +89,56 @@ const SupportSection = () => {
           <h1 className="lg:text-[40px] text-base leading-[19px] lg:leading-[50px] font-plusJakartaSans text-neutral-900 font-bold text-center">
             Pengusung Kami
           </h1>
-          <Image
+          {/* <Image
             src="/images/support-politic-image.svg"
             alt="support image"
             width={1200}
             height={600}
             className="w-full hidden lg:block lg:mt-9 mt-[15px]"
-          />
+          /> */}
+
+          <Carousel
+            plugins={[pluginDesktop.current as any]}
+            opts={{
+              loop: true,
+              dragFree: true,
+            }}
+            className="lg:block hidden mt-10"
+          >
+            <CarouselContent>
+              {imagesDesktop.map((image, index) => (
+                <CarouselItem key={index} className="lg:basis-1/5">
+                  <Image
+                    src={image}
+                    alt={image + index}
+                    width={300}
+                    height={300}
+                    className="w-full h-[216px]"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+          {/* <AnimatePresence initial={false}>
+              {visibleImages.map((img, i) => (
+                <motion.div
+                  key={img}
+                  initial={{ x: "100%", opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: "-100%", opacity: 0 }}
+                  transition={{ duration: 1 }}
+                >
+                  <Image
+                    src={img}
+                    alt={`Image ${i}`}
+                    className="w-full h-max"
+                    width={300}
+                    height={300}
+                  />
+                </motion.div>
+              ))}
+            </AnimatePresence> */}
+          {/* </div> */}
           <div className="h-[101px] lg:hidden mt-5 w-full relative">
             <Carousel
               plugins={[plugin.current as any]}
