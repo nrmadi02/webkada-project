@@ -1,7 +1,12 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import { useRef } from "react";
 
 const socialMedias = [
   {
@@ -28,15 +33,9 @@ const images = [
 ];
 
 const SupportSection = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const plugin = useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: false })
+  );
 
   return (
     <section className="relative">
@@ -90,16 +89,28 @@ const SupportSection = () => {
             className="w-full hidden lg:block lg:mt-9 mt-[15px]"
           />
           <div className="h-[101px] lg:hidden mt-5 w-full relative">
-            {images.map((image, index) => (
-              <motion.img
-                key={index}
-                src={image.src}
-                alt={image.alt}
-                animate={{ opacity: currentImageIndex === index ? 1 : 0 }}
-                transition={{ duration: 0.5 }}
-                className="w-full absolute h-full"
-              />
-            ))}
+            <Carousel
+              plugins={[plugin.current as any]}
+              opts={{
+                loop: true,
+              }}
+              onMouseEnter={plugin.current.stop}
+              onMouseLeave={plugin.current.reset}
+            >
+              <CarouselContent>
+                {images.map((image, index) => (
+                  <CarouselItem key={index}>
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      width={300}
+                      height={300}
+                      className="w-full h-max"
+                    />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
           </div>
         </div>
       </div>
