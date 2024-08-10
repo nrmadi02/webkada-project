@@ -3,32 +3,34 @@ import NewsItem from "../items/news.item";
 
 const newsItems = [
   {
-    title:
-      "Pembukaan Pameran Tunggal Herman Ong Journey To A Thousand Expressions oleh Harda Kiswaya",
-    date: "14 Juli 2024",
-    thumbnail: "/images/news-1.png",
+    title: "#HantamKiswaya #HarapanBaru #HarapanKita",
+    date: "7 Agustus 2024",
+    thumbnail: "/ig/1.jpg",
+    link: "https://www.instagram.com/p/C-Xk594yGq6/",
   },
   {
-    title: "Ngiras : Menikmati Kelezatan Bakmi Pak Mo Tempel Bersama Pak Harda",
-    date: "11 Juli 2024",
-    thumbnail: "/images/news-2.png",
+    title: "#UMKMGirikerto #HardaKiswaya #Sleman",
+    date: "8 Agustus 2024",
+    thumbnail: "/ig/2.jpg",
+    link: "https://www.instagram.com/p/C-abn9Mswiw/",
   },
   {
-    title: "Merti Dusun sebagai Rasa Syukur Warga Gebang Kalurahan Wedomartani",
-    date: "10 Juli 2024",
-    thumbnail: "/images/news-3.png",
+    title: "#PSS #Sleman #SuperElangJawa #HardaKiswaya",
+    date: "7 Agustus 2024",
+    thumbnail: "/ig/3.jpg",
+    link: "https://www.instagram.com/p/C-VInY-I7j0/ ",
   },
   {
-    title:
-      "DPD Partai Gerindra resmi menyerahkan Surat Tugas kepada Harda Kiswaya",
-    date: "9 Juli 2024",
-    thumbnail: "/images/news-4.png",
+    title: "#HardaKiswaya #KalurahanSendangerejo #Minggir #GolongGilig #Sleman",
+    date: "3 Agustus 2024",
+    thumbnail: "/ig/4.jpg",
+    link: "https://www.instagram.com/p/C-NRGvENIU5/",
   },
   {
-    title:
-      "Harda Kiswaya Bersilaturahmi dengan Pimpinan Cabang Muhammadiyah (PCM) Gamping",
-    date: "23 Juni 2024",
-    thumbnail: "/images/news-5.png",
+    title: "#HardaKiswaya #HantamKiswaya #Sleman",
+    date: "2 Agustus 2024",
+    thumbnail: "/ig/5.jpg",
+    link: "https://www.instagram.com/p/C-KzVBKpTuv/",
   },
 ];
 
@@ -43,8 +45,8 @@ const NewsSection = () => {
             </h1>
             <div className="lg:h-[5px] h-[3px] w-[30px] lg:w-[50px] bg-[#FDC61A]" />
           </div>
-          <button className="flex gap-[5px]">
-            <p className="lg:text-base text-[7px] font-semibold">
+          <button className="flex gap-[5px] hidden">
+            <p className="lg:text-base  text-[7px] font-semibold">
               Selengkapnya
             </p>
             <Icon
@@ -53,13 +55,24 @@ const NewsSection = () => {
             />
           </button>
         </div>
-        <div className="lg:mt-10 mt-[15px] flex flex-col lg:flex-row gap-[15px] lg:gap-[29px]">
-          <div className="lg:w-[583px] w-full shrink-0">
+        <div className="lg:mt-10 mt-[15px] flex flex-col lg:flex-row gap-[15px] lg:gap-[36px]">
+          <div className="shrink-0">
             <NewsItem {...newsItems[0]} isHighlight />
           </div>
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col lg:hidden gap-5">
             {newsItems.map((newsItem, idx) => {
               return idx > 0 && <NewsItem key={idx} {...newsItem} />;
+            })}
+          </div>
+          <div className="hidden lg:grid w-full grid-cols-2 gap-5">
+            {newsItems.map((newsItem, idx) => {
+              return (
+                idx > 0 && (
+                  <div key={idx} className="w-full col-span-1">
+                    <NewsItem key={idx} {...newsItem} />
+                  </div>
+                )
+              );
             })}
           </div>
         </div>
