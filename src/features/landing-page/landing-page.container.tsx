@@ -11,6 +11,7 @@ import { VisiMisiSection } from "./components/sections/visi-misi.section";
 import InformationSection from "./components/sections/information.section";
 import NewsSection from "./components/sections/news.section";
 import AIHardaChat from "./components/chat/ai-harda.chat";
+import VisiSection from "./components/sections/visi.section";
 
 export const LandingPageContainer = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -18,6 +19,7 @@ export const LandingPageContainer = () => {
     <>
       <HeroSection />
       <SupportSection />
+      <VisiSection />
       <VisiMisiSection />
       <InformationSection />
       <NewsSection />

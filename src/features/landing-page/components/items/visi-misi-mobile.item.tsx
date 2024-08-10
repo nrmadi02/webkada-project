@@ -82,9 +82,9 @@ export const VisiMisiMobileItem = ({
       {isHovered && (
         <motion.div
           key="description"
-          className="font-semibold w-[100%] z-[102] bg-[#CBCBCB26]  backdrop-blur-[1px]  h-[calc(300px-60px)] px-5 py-5  absolute top-[61px] text-[16px] text-center text-[#434343] leading-[19px]"
+          className="font-semibold w-[100%] z-[102] bg-[#CBCBCB26]  backdrop-blur-[1px]  h-[calc(360px-60px)] px-5 py-5  absolute top-[61px] text-[16px] text-center text-[#434343] leading-[19px]"
           initial={{ opacity: 0, height: "0px" }}
-          animate={{ opacity: 1, height: 300-60 }}
+          animate={{ opacity: 1, height: 360-60 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
         >

@@ -5,29 +5,30 @@ import { useState } from "react";
 
 const visiMisiItems = [
   {
-    title: "Visi",
+    title: "Pendidikan dan Kesehatan",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus nulla at volutpat diam ut venenatis.",
+      "Membangun pelayanan pendidikan dan kesehatan yang berkualitas dan terjangkau.",
   },
   {
-    title: "Misi",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus nulla at volutpat diam ut venenatis.",
+    title: "Infrastruktur",
+    description: "Membangun infrastruktur yang memadai.",
   },
   {
-    title: "Misi",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus nulla at volutpat diam ut venenatis.",
+    title: "Lapangan Kerja",
+    description: "Menciptakan peluang kerja yang cukup bagi masyarakat.",
   },
   {
-    title: "Misi",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus nulla at volutpat diam ut venenatis.",
+    title: "Kolaborasi",
+    description: "Mengembangkan pemerintahan yang kolaboratif",
   },
   {
-    title: "Misi",
+    title: "Keberlanjutan dan Keseimbangan",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus nulla at volutpat diam ut venenatis.",
+      "Mewujudkan pembangunan berkelanjutan dengan menjaga keseimbangan kepentingan ekonomi, politik, sosial budaya, dan lingkungan hidup.",
+  },
+  {
+    title: "Kedaulatan Pangan",
+    description: "Mewujudkan kedaulatan pangan daerah.",
   },
 ];
 
@@ -40,12 +41,13 @@ export const VisiMisiSection = () => {
     2: false,
     3: false,
     4: false,
+    5: false,
   });
 
   const itemHidden = Object.values(isHovered).some((value) => value);
 
   return (
-    <section id="visi-misi">
+    <section>
       <div className="lg:pr-[70px] flex justify-between items-center pb-[30px]">
         <div className="hidden lg:block">
           {visiMisiItems.map((visiMisiItem, idx) => (
@@ -64,7 +66,7 @@ export const VisiMisiSection = () => {
           className="w-[144px] hidden lg:block h-[175px] lg:w-[443px] lg:h-[563px]"
         />
         <div className="w-full bg-cover relative h-full min-h-[555px] lg:hidden bg-[url('/images/harda-visi-misi.png')]">
-          <div className="lg:hidden w-full right-0 left-0 absolute bottom-0 h-[300px]">
+          <div className="lg:hidden w-full right-0 left-0 absolute bottom-0 h-[360px]">
             {!itemHidden ? (
               <>
                 {visiMisiItems.map((visiMisiItem, idx) => (

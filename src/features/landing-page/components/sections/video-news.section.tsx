@@ -1,9 +1,6 @@
 "use client";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { useState } from "react";
-import { cn } from "@/lib/utils";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Image from "next/image";
 
 const videoItems = [
@@ -32,7 +29,6 @@ const videoItems = [
 ];
 
 const VideoNewsSection = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
   return (
     <section className="relative">
       <div className="lg:pb-[170px] pb-9 lg:container">
@@ -44,35 +40,39 @@ const VideoNewsSection = () => {
             <div className="h-[5px] w-[50px] bg-[#FDC61A]" />
           </div>
         </div>
-        <div className="lg:mt-[35px] mt-4">
-          <Swiper
-            onActiveIndexChange={(swiper) => {
-              setActiveIndex(swiper.realIndex);
-            }}
-            centeredSlides={true}
-            slidesPerView={"auto"}
-          >
-            {videoItems.map((item, idx) => (
-              <SwiperSlide
-                key={idx}
-                className={cn(
-                  "lg:min-h-[378px] h-[159px] transition-all !w-[251px] lg:!w-[587px] p-4",
-                  idx !== activeIndex && "lg:!scale-[.7] !scale-90"
-                )}
-              >
-                <div className="overflow-hidden relative rounded-lg news-video-shadow">
-                  <Image
-                    src={item.thumbnail}
-                    alt={item.title}
-                    width={587}
-                    height={378}
-                  />
-                  <Image className="h-[50px] w-[50px] absolute top-0 bottom-0 my-auto right-0 left-0 mx-auto" src="/icons/play-icon.svg" alt="play-button" width={50} height={50} />
-                </div>
-              </SwiperSlide>
-            ))}
-            
-          </Swiper>
+        <div className="lg:mt-[35px] mt-4 relative">
+          <Carousel className="w-full">
+            <CarouselContent>
+              {videoItems.map((video, index) => (
+                <CarouselItem
+                  key={index}
+                  className="flex  flex-col items-center justify-center"
+                >
+                  <div className="relative">
+                    <Image
+                      src={video.thumbnail}
+                      alt={video.title}
+                      width={1000}
+                      height={1000}
+                      className="h-[145px] w-[260px] lg:w-[800px] lg:h-[450px] rounded-lg"
+                    />
+                    <Image
+                      className="h-[50px] w-[50px] absolute top-0 bottom-0 my-auto right-0 left-0 mx-auto"
+                      src="/icons/play-icon.svg"
+                      alt="play-button"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                  <p className="max-w-[260px] lg:max-w-[800px] lg:text-3xl text-center mt-[10px] text-sm font-semibold text-neutral-900">
+                    {video.title}
+                  </p>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute left-5" />
+            <CarouselNext className="absolute right-5" />
+          </Carousel>
         </div>
       </div>
     </section>
