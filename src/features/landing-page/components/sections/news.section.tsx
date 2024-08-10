@@ -45,7 +45,7 @@ const NewsSection = () => {
             </h1>
             <div className="lg:h-[5px] h-[3px] w-[30px] lg:w-[50px] bg-[#FDC61A]" />
           </div>
-          <button className="flex gap-[5px] hidden">
+          <button className="gap-[5px] hidden">
             <p className="lg:text-base  text-[7px] font-semibold">
               Selengkapnya
             </p>
